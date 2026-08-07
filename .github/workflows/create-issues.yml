@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  contents: read
   issues: write
 
 jobs:
@@ -14,20 +15,22 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh label create "milestone" --color "0E8A16" --force || true
-          gh label create "pqc-core" --color "1D76DB" --force || true
-          gh label create "architecture" --color "5319E7" --force || true
-          gh label create "policy" --color "0052CC" --force || true
-          gh label create "vendor-hsm" --color "D93F0B" --force || true
-          gh label create "stakeholder" --color "FBCA04" --force || true
+          set +e
+
+          gh label create "milestone" --color "0E8A16" --force
+          gh label create "pqc-core" --color "1D76DB" --force
+          gh label create "architecture" --color "5319E7" --force
+          gh label create "policy" --color "0052CC" --force
+          gh label create "vendor-hsm" --color "D93F0B" --force
+          gh label create "stakeholder" --color "FBCA04" --force
 
           gh issue create --title "[Milestone 0] FPKIPA Algorithm & Key Selection" --body "Track draft PQC certificate profiles for Common and FBCA. Blocked by NIST FIPS 203/204." --label "milestone,pqc-core"
           gh issue create --title "[Milestone 1] Infrastructure Design for PQC Pure Architecture" --body "Design pure PQC Root/Bridge CAs (ML-DSA-87). Blocked by NIST SP 800-131A and PA Vote." --label "milestone,architecture"
-          gh issue create --title "[Milestone 1.1] CITE Support for PQC Testing (BRAWL)" --body "Maintain development BRAWL Root and Bridge CAs. Blocked by #2 and #4." --label "milestone"
+          gh issue create --title "[Milestone 1.1] CITE Support for PQC Testing (BRAWL)" --body "Maintain development BRAWL Root and Bridge CAs. Blocked by Milestone 1 and Milestone 2." --label "milestone"
           gh issue create --title "[Milestone 2] FPKIPA Policy Updates (PQC Allowance)" --body "Draft Common & FBCA policy updates. Blocked by NIST SP 800-57/78/131A." --label "milestone,policy"
           gh issue create --title "[Milestone 3] CA/HSM Vendor PQC Support Confirmation" --body "Verify NIST CMVP validation for ML-DSA / ML-KEM on vendor HSMs." --label "milestone,vendor-hsm"
-          gh issue create --title "[Milestone 3.1] FPKI Core CA/HSM Migrations" --body "Firmware updates and new HSM acquisitions for FCPCA & FBCA. Blocked by #3 and #5." --label "milestone"
-          gh issue create --title "[Milestone 3.2] FPKI Member CA/HSM Migrations" --body "Collect CRFs and CSRs for member CA migrations. Blocked by #6." --label "milestone"
-          gh issue create --title "[Milestone 3.3] Subscriber PQC Certificate Issuance" --body "Begin issuing subscriber certs with PQC OIDs. Blocked by #7 and #10." --label "milestone"
-          gh issue create --title "[Milestone 4] Sunset Legacy FCPCAG2 and FBCAG5 CAs" --body "Revoke subordinate certs and sunset legacy CAs. Blocked by #8 and NIST disallowance date." --label "milestone"
+          gh issue create --title "[Milestone 3.1] FPKI Core CA/HSM Migrations" --body "Firmware updates and new HSM acquisitions for FCPCA & FBCA. Blocked by Milestone 1.1 and Milestone 3." --label "milestone"
+          gh issue create --title "[Milestone 3.2] FPKI Member CA/HSM Migrations" --body "Collect CRFs and CSRs for member CA migrations. Blocked by Milestone 3.1." --label "milestone"
+          gh issue create --title "[Milestone 3.3] Subscriber PQC Certificate Issuance" --body "Begin issuing subscriber certs with PQC OIDs. Blocked by Milestone 3.2." --label "milestone"
+          gh issue create --title "[Milestone 4] Sunset Legacy FCPCAG2 and FBCAG5 CAs" --body "Revoke subordinate certs and sunset legacy CAs. Blocked by Milestone 3.3 and NIST disallowance date." --label "milestone"
           gh issue create --title "[Stakeholder Readiness] CMS & PIV Card Applet Migration Tracker" --body "Track CMS software updates and PIV SCP12 applet readiness across agency stakeholders." --label "stakeholder"
