@@ -17,3 +17,5 @@ The FPKI Management authority has established an ML-DSA-87 self-signed root CA t
 - BRAWL, Development Root CA Certificate - http://repo.brawl.fpki-lab.gov/fcpca/DevfcpcaD1.crt<br>
 - Draft Common PQC certificate and CRL profiles - https://www.idmanagement.gov/docs/fpki-x509-cert-profile-common-pqc.pdf<br>
 - Draft FBCA PQC certificate and CRL profiles - https://www.idmanagement.gov/docs/fpki-x509-cert-profile-fbca-pqc.pdf
+
+Email FPKI-help@gsa.gov if you would like to request a certificate request form for a BRAWL CA certificate.
