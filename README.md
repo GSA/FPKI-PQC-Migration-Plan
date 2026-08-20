@@ -14,6 +14,6 @@ Issue submission (which correlate to project plan activities/tasks) is limited t
 The FPKI Management authority has established an ML-DSA-87 self-signed root CA to support non-production affiliate testing, additionally Draft FPKI PQC certificate and CRL profiles have been established to provide guidance to testers.  See the following links for additional details.
 
 Bridge and Root Authority Working Lab (BRAWL the PQC development CAs) - https://www.idmanagement.gov/implement/fpkicite/<br>
-BRAWL, Development Root CA Certificate - http://repo.brawl.fpki-lab.gov/fcpca/DevfcpcaD1.crt
-Draft Common PQC certificate and CRL profiles - https://www.idmanagement.gov/docs/fpki-x509-cert-profile-common-pqc.pdf
+BRAWL, Development Root CA Certificate - http://repo.brawl.fpki-lab.gov/fcpca/DevfcpcaD1.crt<br>
+Draft Common PQC certificate and CRL profiles - https://www.idmanagement.gov/docs/fpki-x509-cert-profile-common-pqc.pdf<br>
 Draft FBCA PQC certificate and CRL profiles - https://www.idmanagement.gov/docs/fpki-x509-cert-profile-fbca-pqc.pdf
